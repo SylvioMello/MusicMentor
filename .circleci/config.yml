@@ -1,0 +1,9 @@
+version: 2.1
+
+workflows:
+  test-deploy:
+
+jobs:
+  test:
+    docker:
+      - image: circleci/python
