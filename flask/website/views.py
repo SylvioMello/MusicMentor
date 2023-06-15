@@ -21,7 +21,7 @@ def home():
     
     link = f"https://open.spotify.com/embed/track/{track_id}?utm_source=generator"
 
-    data = pd.read_csv('music/spotify_data/data.csv')
+    data = pd.read_csv('https://raw.githubusercontent.com/SylvioMello/MusicMentor/main/flask/website/music/spotify_data/data.csv')
     recommendations = recommend(track_id, data, sp)['id'].values.tolist()
     rec_links = []
 
