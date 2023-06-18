@@ -20,6 +20,7 @@ def recommend(track_id, data, sp, n_recs = 5, variables_to_dist = []):
     data_sorted = data.sort_values(by = "distances", ascending = True)
     # If the input track is in the reference set, it will have a distance of 0, but should not be recommendet
     data_sorted = data_sorted[data_sorted["id"] != track_id]
+    (data_sorted.columns)
 
     # Return n recommendations
     return data_sorted.iloc[:n_recs]

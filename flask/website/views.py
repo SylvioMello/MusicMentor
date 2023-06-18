@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash
 import pandas as pd
 from .music.auth import authorize
 from .music.model import recommend
+from .music.preproc import get_id_from_link, get_id_from_name
 
 # definimos os 'caminhos'
 views = Blueprint('views', __name__)
@@ -11,6 +12,10 @@ views = Blueprint('views', __name__)
 def home():
     if request.method == 'POST':
         track_id = request.form.get('track_id')
+
+        if 'spotify.com' in track_id:
+            track_id = get_id_from_link(track_id) #track_id.split('/')[-1]
+
         variables_to_dist = list(request.form)
         variables_to_dist.remove('track_id')
 
@@ -19,7 +24,12 @@ def home():
     try: 
         sp.track(track_id)
     except:
-        return render_template('base.html')
+        try:
+            track_id = get_id_from_name(track_id)
+            sp.track(track_id)
+        except:
+            flash('Invalid track ID. Please try again.', category='error')
+            return render_template('base.html')
     
 
     
