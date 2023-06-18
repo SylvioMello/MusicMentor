@@ -4,7 +4,21 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
+        <style>
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: -10px;
+                margin-left: -10px;
+            }
+
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+        </style>
         <title>Trabalho PA</title>
     </head>
     <body>
@@ -27,8 +41,33 @@
 
             <form method="POST">
                 <input type="text" id="track_id" name="track_id" placeholder="ID da música"><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="checkbox" id="danceability" name="danceability" value="danceability">
+                        <label for="danceability">Dançabilidade</label><br>
+                
+                        <input type="checkbox" id="energy" name="energy" value="energy">
+                        <label for="energy">Energia</label><br>
+                
+                        <input type="checkbox" id="instrumentalness" name="instrumentalness" value="instrumentalness">
+                        <label for="instrumentalness">Instrumentalidade</label><br>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <input type="checkbox" id="speechiness" name="speechiness" value="speechiness">
+                        <label for="speechiness">Expressividade</label><br>
+                
+                        <input type="checkbox" id="liveness" name="liveness" value="liveness">
+                        <label for="liveness">Vivacidade</label><br>
+                
+                        <input type="checkbox" id="valence" name="valence" value="valence">
+                        <label for="valence">Valência</label><br>
+                    </div>
+                </div>
+                
                 <input type="submit" value="Enviar">
             </form>
+
 
             <h2>Sua Música</h2>
             <div>
@@ -39,6 +78,8 @@
                 clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 {% endif %}
             </div>
+
+            
 
             <h2>Recomendações:</h2>
             <div>
@@ -52,6 +93,5 @@
                 {% endif %}
             </div>
         </main>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> -->
     </body>
 </html>

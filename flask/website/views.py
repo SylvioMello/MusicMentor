@@ -11,6 +11,8 @@ views = Blueprint('views', __name__)
 def home():
     if request.method == 'POST':
         track_id = request.form.get('track_id')
+        variables_to_dist = list(request.form)
+        variables_to_dist.remove('track_id')
 
     sp = authorize()
     
@@ -19,10 +21,12 @@ def home():
     except:
         return render_template('base.html')
     
+
+    
     link = f"https://open.spotify.com/embed/track/{track_id}?utm_source=generator"
 
     data = pd.read_csv('https://raw.githubusercontent.com/SylvioMello/MusicMentor/main/flask/website/music/spotify_data/data.csv')
-    recommendations = recommend(track_id, data, sp)['id'].values.tolist()
+    recommendations = recommend(track_id, data, sp, variables_to_dist = variables_to_dist)['id'].values.tolist()
     rec_links = []
 
     for rec_id in recommendations:
