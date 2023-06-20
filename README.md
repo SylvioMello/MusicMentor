@@ -18,9 +18,9 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
-## Rodando a aplicaão
+## Rodando a aplicação
 
-Para rodar a aplicaão, basta instalar as dependências e baixar o código do projeto. Com isso em mãos, é necessário rodar o arquivo `main.py` presente no diretório `website`.
+Para rodar a aplicação, basta instalar as dependências e baixar o código do projeto. Com isso em mãos, é necessário rodar o arquivo `main.py` presente no diretório `website`.
 Um exemplo de utilização é mostrado:
 
 ```python3
